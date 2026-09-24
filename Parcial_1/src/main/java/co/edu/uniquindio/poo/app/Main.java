@@ -1,4 +1,9 @@
 package co.edu.uniquindio.poo.app;
+import co.edu.uniquindio.poo.model.Hotel;
+import co.edu.uniquindio.poo.model.Huesped;
+import co.edu.uniquindio.poo.model.Habitacion;
+
+
 
 import javax.swing.JOptionPane;
 
@@ -26,5 +31,7 @@ public class Main {
 
         }while(opcion!=0);
     }
+
+
 
 }

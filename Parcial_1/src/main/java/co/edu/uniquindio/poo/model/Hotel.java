@@ -79,4 +79,6 @@ public class Hotel {
                 ", listaHabitaciones=" + listaHabitaciones +
                 '}';
     }
+
+    public String registrarHuesped
 }
