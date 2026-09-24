@@ -42,8 +42,32 @@ public class Main {
                     registrarHabitacion(hotel);
                     break;
 
+                case 3:
+                    registrarReserva(hotel);
+                    break;
+
+                case 4:
+                    confirmarReserva(hotel);
+                    break;
+
                 case 5:
                     consultarHuespedPorTelefono(hotel);
+                    break;
+
+                case 6:
+
+                    break;
+
+                case 7:
+
+                    break;
+
+                case 8:
+                    verificarCapicua(hotel);
+                    break;
+
+                case 9:
+
                     break;
                 case 0:
                     JOptionPane.showMessageDialog(null, "Gracias por utilizar StayPlus Hotel :)");
@@ -93,7 +117,53 @@ public class Main {
 
     }
 
+    static void registrarReserva(Hotel hotel) {
+        String codigo = JOptionPane.showInputDialog(null, "Ingrese el código de la reserva");
+        String fecha = JOptionPane.showInputDialog(null, "Ingrese la fecha (dd/mm/aaaa)");
+        byte noches = Byte.parseByte(JOptionPane.showInputDialog(null, "Ingrese el número de noches"));
+        byte cantidadHuespedes = Byte.parseByte(JOptionPane.showInputDialog(null, "Ingrese la cantidad de huéspedes"));
+        String metodoPago = JOptionPane.showInputDialog(null, "Ingrese el método de pago (Efectivo, Tarjeta o Transferencia)");
+        String documento = JOptionPane.showInputDialog(null, "Ingrese el documento del huésped que reserva");
 
+        int cantidadHabitaciones = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cuántas habitaciones desea reservar?"));
+        int[] numerosHabitaciones = new int[cantidadHabitaciones];
+        for (int i = 0; i < cantidadHabitaciones; i++) {
+            numerosHabitaciones[i] = Integer.parseInt(
+                    JOptionPane.showInputDialog(null, "Ingrese el número de la habitación " + (i + 1)));
+        }
 
+        String resultado = hotel.registrarReserva(codigo, fecha, noches, cantidadHuespedes,
+                metodoPago, documento, numerosHabitaciones);
+        JOptionPane.showMessageDialog(null, resultado);
+    }
+
+    static void confirmarReserva(Hotel hotel) {
+        String codigo = JOptionPane.showInputDialog(null, "Ingrese el código de la reserva a confirmar");
+        Reserva reserva = hotel.buscarReservaPorCodigo(codigo);
+
+        if (reserva == null) {
+            JOptionPane.showMessageDialog(null, "Error, no se encontró la reserva");
+        } else {
+            JOptionPane.showMessageDialog(null, reserva.confirmar());
+        }
+    }
+
+    static void verificarCapicua(Hotel hotel) {
+        String codigo = JOptionPane.showInputDialog(null, "Ingrese el código de la reserva a verificar");
+        Reserva reserva = hotel.buscarReservaPorCodigo(codigo);
+
+        if (reserva == null) {
+            JOptionPane.showMessageDialog(null, "Error, no se encontró la reserva");
+        } else if (reserva.esCapicua()) {
+            JOptionPane.showMessageDialog(null, "La reserva " + codigo + " es especial (capicúa)");
+        } else {
+            JOptionPane.showMessageDialog(null, "La reserva " + codigo + " no es especial");
+        }
+    }
 
 }
+
+
+
+
+

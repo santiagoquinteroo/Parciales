@@ -158,7 +158,18 @@ for (Huesped aux: listaHuespedes){
         return msg;
     }
 
-    
+    public Reserva buscarReservaPorCodigo(String codigo){
+        for (Reserva aux : listaReservas){
+            if (aux.getCodigo().equals(codigo)){
+                return aux;
+            }
+        }
+        return null;
+
+
+    }
+
+
 
 
     @Override
@@ -172,6 +183,20 @@ for (Huesped aux: listaHuespedes){
                 ", listaHabitaciones=" + listaHabitaciones +
                 ", listaReservas=" + listaReservas +
                 '}';
-    }
+
+
+        }
+
+
+
+
+
+
+
+
 
 }
+
+
+
+

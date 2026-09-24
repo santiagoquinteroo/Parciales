@@ -136,6 +136,16 @@ public class Reserva {
         return this.valorTotal;
     }
 
+    public String confirmar() {
+        this.estado = "Confirmada";
+        for (Habitacion h : listaHabitaciones) {
+            if (h != null) {
+                h.actualizarEstado("Reservada");
+            }
+        }
+        return "Reserva " + codigo + " confirmada correctamente";
+    }
+
 
 
     public boolean esCapicua() {
