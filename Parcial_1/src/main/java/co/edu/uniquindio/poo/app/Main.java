@@ -183,6 +183,11 @@ public class Main {
         mensaje = mensaje + "\nTotal de habitaciones ocupadas en la semana: " + hotel.totalHabitacionesOcupadas();
         JOptionPane.showMessageDialog(null, mensaje);
     }
+    static void calcularIngresos(Hotel hotel) {
+        String fecha = JOptionPane.showInputDialog(null, "Ingrese la fecha a consultar (dd/mm/aaaa)");
+        double ingresos = hotel.calcularIngresos(fecha);
+        JOptionPane.showMessageDialog(null, "Ingresos del " + fecha + ": $" + ingresos);
+    }
 }
 
 

@@ -241,6 +241,16 @@ for (Huesped aux: listaHuespedes){
     }
 
 
+    public double calcularIngresos(String fecha) {
+        double ingresos = 0;
+        for (Reserva aux : listaReservas) {
+            if (aux.getFecha().equals(fecha)) {
+                ingresos += aux.getValorTotal();
+            }
+        }
+        return ingresos;
+    }
+
 
 
 
