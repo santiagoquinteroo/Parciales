@@ -38,6 +38,10 @@ public class Main {
                     registrarHuesped(hotel);
                     break;
 
+                case 2:
+                    registrarHabitacion(hotel);
+                    break;
+
                 case 5:
                     consultarHuespedPorTelefono(hotel);
                     break;
@@ -73,6 +77,22 @@ public class Main {
             JOptionPane.showMessageDialog(null,"Telefono: "+telefono+" || "+huesped.getNombre()+" || "+huesped.getEdad()+" || "+huesped.getCiudadDeProcedencia()+" || "+huesped.getDocumento());
         }
     }
+    static void registrarHabitacion(Hotel hotel){
+        byte numero = Byte.parseByte(JOptionPane.showInputDialog(null, "Ingrese el número de la habitación"));
+        String tipo = JOptionPane.showInputDialog(null, "Ingrese el tipo (Individual, Doble o Suite)");
+        byte piso = Byte.parseByte(JOptionPane.showInputDialog(null, "Ingrese el piso"));
+        byte capacidad = Byte.parseByte(JOptionPane.showInputDialog(null, "Ingrese la capacidad máxima de personas"));
+        double precio = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el precio por noche"));
+
+        String resultado = hotel.registrarHabitacion(numero, tipo, piso, capacidad, precio);
+        if (resultado.isEmpty()) {
+            resultado = "Habitación registrada con éxito";
+        }
+        JOptionPane.showMessageDialog(null, resultado);
+
+
+    }
+
 
 
 
