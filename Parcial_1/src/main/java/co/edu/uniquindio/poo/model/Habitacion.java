@@ -112,7 +112,7 @@ return "Dia actualizado correctamente"+indiceDia+" = "+valor;
     @Override
     public String toString() {
         return "Habitacion{" +
-                "numeroDeHabitacion=" + numeroDeHabitacion +
+                "numeroDeHabitacion=" + numero +
                 ", tipo='" + tipo + '\'' +
                 ", piso=" + piso +
                 ", capacidad=" + capacidad +

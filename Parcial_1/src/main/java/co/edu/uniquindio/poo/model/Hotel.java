@@ -132,7 +132,7 @@ for (Huesped aux: listaHuespedes){
         return null;
     }
 
-    public String registrarReserva (String codigo, String fecha, int numeroDeNoches, int cantidadHuespedes,
+    public String registrarReserva (String codigo, String fecha, byte numeroDeNoches, byte cantidadHuespedes,
                                     String metodoPago, String documento, int[] numerosHabitaciones) {
         String msg = "";
         Huesped huesped = buscarHuespedPorDocumento(documento);
@@ -153,18 +153,12 @@ for (Huesped aux: listaHuespedes){
             }
             reservaNueva.agregarHabitacion(habitacion);
         }
+        listaReservas.add(reservaNueva);
+        msg+="Reserva registrada con éxito. Valor total: S "+reservaNueva.calcularValorTotal();
         return msg;
     }
 
-public Reserva buscarReservaPorCodigo(String codigo){
-        for (Reserva aux : listaReservas){
-            if (aux.getCodigo().equals(codigo)){
-                return aux;
-            }
-        }
-        return null;
-
-    }
+    
 
 
     @Override
