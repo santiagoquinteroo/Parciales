@@ -55,11 +55,11 @@ public class Main {
                     break;
 
                 case 6:
-
+                    marcarDiaOcupacion(hotel);
                     break;
 
                 case 7:
-
+                    imprimirMatrizDeOcupacion(hotel);
                     break;
 
                 case 8:
@@ -161,7 +161,31 @@ public class Main {
         }
     }
 
+    static void marcarDiaOcupacion(Hotel hotel) {
+        int numero = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el número de la habitación"));
+        Habitacion habitacion = hotel.buscarHabitacionPorNumero(numero);
+
+        if (habitacion == null) {
+            JOptionPane.showMessageDialog(null, "Error, no existe esa habitación");
+        }
+        int dia = Integer.parseInt(JOptionPane.showInputDialog(null,
+                "Ingrese el día (0=Lunes, 1=Martes, 2=Miércoles, 3=Jueves, 4=Viernes, 5=Sábado, 6=Domingo)"));
+        String valor = JOptionPane.showInputDialog(null, "Ingrese el estado (O = Ocupada, D = Disponible)");
+
+        String resultado = habitacion.marcarDia(dia, valor.toUpperCase());
+        JOptionPane.showMessageDialog(null, resultado);
+        }
+
+    static void imprimirMatrizDeOcupacion(Hotel hotel) {
+        String mensaje = hotel.imprimirMatrizOcupacion();
+        mensaje = mensaje + "\nDía con mayor ocupación: " + hotel.diaMayorOcupacion();
+        mensaje = mensaje + "\nDía con menor ocupación: " + hotel.diaMenorOcupacion();
+        mensaje = mensaje + "\nTotal de habitaciones ocupadas en la semana: " + hotel.totalHabitacionesOcupadas();
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
 }
+
+
 
 
 

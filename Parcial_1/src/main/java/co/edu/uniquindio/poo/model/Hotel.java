@@ -168,6 +168,78 @@ for (Huesped aux: listaHuespedes){
 
 
     }
+    //__________ MATRIZ OCUPACIÓN
+
+    public int contarHabitacionesOcupadas (int indiceDia){
+        int contador=0;
+        for (Habitacion aux : listaHabitaciones){
+            if (aux.getEstadoSemana().equals("0")){
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+    public String diaMayorOcupacion() {
+        int mejorIndice = -1;
+        int mejorConteo = -1;
+        for (int dia = 0; dia < Habitacion.DiasSemana.length; dia++) {
+            int conteo = contarHabitacionesOcupadas(dia);
+            if (conteo > mejorConteo) {
+                mejorConteo = conteo;
+                mejorIndice = dia;
+            }
+        }
+        return mejorIndice >= 0 ? Habitacion.DiasSemana[mejorIndice] : "No hay datos";
+    }
+
+    public String diaMenorOcupacion() {
+        int peorIndice = -1;
+        int peorConteo = Integer.MAX_VALUE;
+        for (int dia = 0; dia < Habitacion.DiasSemana.length; dia++) {
+            int conteo = contarHabitacionesOcupadas(dia);
+            if (conteo < peorConteo) {
+                peorConteo = conteo;
+                peorIndice = dia;
+            }
+        }
+        if(peorConteo >= 0 ){
+            return Habitacion.DiasSemana[peorConteo];
+        }else{
+            return "No hay datos";
+        }
+
+    }
+
+    public int totalHabitacionesOcupadas() {
+        int total = 0;
+        for (Habitacion aux : listaHabitaciones) {
+            for (String estadoDia : aux.getEstadoSemana()) {
+                if (estadoDia.equals("O")) {
+                    total++;
+                }
+            }
+        }
+        return total;
+    }
+
+    public String imprimirMatrizOcupacion() {
+        String msg = "Habitación\t";
+        for (String dia : Habitacion.DiasSemana) {
+            msg +=  dia + "\t";
+        }
+        msg +=  "\n";
+
+        for (Habitacion aux : listaHabitaciones) {
+            msg +=  aux.getNumero() + "\t\t";
+            for (String estadoDia : aux.getEstadoSemana()) {
+                msg += estadoDia + "\t";
+            }
+            msg +="\n";
+        }
+        return msg;
+    }
+
 
 
 
