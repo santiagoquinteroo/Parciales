@@ -67,11 +67,11 @@ public class Main {
                     break;
 
                 case 9:
-
+                    calcularIngresos(hotel);
                     break;
                 case 0:
                     JOptionPane.showMessageDialog(null, "Gracias por utilizar StayPlus Hotel :)");
-
+                    break;
                 default:JOptionPane.showMessageDialog(null,"Opción no encontrada o invalida, intente nuevamente");
             }
 

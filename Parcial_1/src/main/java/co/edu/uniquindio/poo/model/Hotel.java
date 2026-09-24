@@ -168,7 +168,7 @@ for (Huesped aux: listaHuespedes){
 
 
     }
-    //__________ MATRIZ OCUPACIÓN
+
 
     public int contarHabitacionesOcupadas (int indiceDia){
         int contador=0;
@@ -226,16 +226,16 @@ for (Huesped aux: listaHuespedes){
     public String imprimirMatrizOcupacion() {
         String msg = "Habitación\t";
         for (String dia : Habitacion.DiasSemana) {
-            msg +=  dia + "\t";
+            msg +=  dia + " \t";
         }
-        msg +=  "\n";
+        msg +=  " \n";
 
         for (Habitacion aux : listaHabitaciones) {
-            msg +=  aux.getNumero() + "\t\t";
+            msg +=  aux.getNumero() + " \t\t";
             for (String estadoDia : aux.getEstadoSemana()) {
-                msg += estadoDia + "\t";
+                msg += estadoDia + " \t";
             }
-            msg +="\n";
+            msg +=" \n";
         }
         return msg;
     }
