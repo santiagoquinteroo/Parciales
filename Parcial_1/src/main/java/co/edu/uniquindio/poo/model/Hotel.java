@@ -121,6 +121,7 @@ for (Huesped aux: listaHuespedes){
             listaHabitaciones.add(habitacionNueva);
 
         }
+        return msg;
     }
     public Habitacion buscarHabitacionPorNumero(int numero){
         for (Habitacion aux : listaHabitaciones){
@@ -132,7 +133,7 @@ for (Huesped aux: listaHuespedes){
     }
 
     public String registrarReserva (String codigo, String fecha, int numeroDeNoches, int cantidadHuespedes,
-                                    String metodoPago, String documento, int[] numerosHabitaciones){
+                                    String metodoPago, String documento, int[] numerosHabitaciones) {
         String msg = "";
         Huesped huesped = buscarHuespedPorDocumento(documento);
 
