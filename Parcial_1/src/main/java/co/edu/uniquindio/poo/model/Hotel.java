@@ -152,6 +152,7 @@ for (Huesped aux: listaHuespedes){
             }
             reservaNueva.agregarHabitacion(habitacion);
         }
+        return msg;
     }
 
 public Reserva buscarReservaPorCodigo(String codigo){
