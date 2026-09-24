@@ -146,10 +146,10 @@ for (Huesped aux: listaHuespedes){
         for (int numero : numerosHabitaciones) {
             Habitacion habitacion = buscarHabitacionPorNumero(numero);
             if (habitacion == null) {
-                return "Error, la habitación " + numero + " no existe";
+                msg+= "Error, la habitación " + numero + " no existe";
             }
             if (!habitacion.verificarDisponibilidad()) {
-                return "Error, la habitación " + numero + " no está disponible";
+                msg+= "Error, la habitación " + numero + " no está disponible";
             }
             reservaNueva.agregarHabitacion(habitacion);
         }
