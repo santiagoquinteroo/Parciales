@@ -122,7 +122,7 @@ for (Huesped aux: listaHuespedes){
 
         }
     }
-    public Habitacion buscarHabitacionPorNumero(byte numero){
+    public Habitacion buscarHabitacionPorNumero(int numero){
         for (Habitacion aux : listaHabitaciones){
             if (aux.getNumero() == numero){
                 return aux;
